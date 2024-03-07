@@ -13,3 +13,21 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// Code JavaScript pour gérer l'affichage du bouton de retour vers le haut
+document.addEventListener("DOMContentLoaded", function() {
+    var backToTopButton = document.getElementById("back-to-top");
+  
+    window.addEventListener("scroll", function() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopButton.style.display = "block";
+      } else {
+        backToTopButton.style.display = "none";
+      }
+    });
+  
+    backToTopButton.addEventListener("click", function() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  });
