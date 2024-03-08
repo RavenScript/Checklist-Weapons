@@ -83,6 +83,20 @@ body {
   padding: 20px;
 }
 
+/* Ajoute cette règle pour positionner la checkbox à côté du nom du tableau */
+.image-table caption.coche-all {
+  position: relative;
+}
+
+/* Ajoute cette règle pour styliser la checkbox "coche-all" */
+.image-table caption.coche-all input[type="checkbox"] {
+  position: absolute;
+  right: 50px; /* Ajuste la valeur selon tes préférences */
+  left: auto;
+  cursor: pointer;
+}
+
+
 /* Fixer la taille des images */
 .image-table img {
   width: 300px; /* Ajuste la largeur selon tes préférences */
