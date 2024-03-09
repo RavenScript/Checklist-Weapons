@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    var hamburgerMenu = document.getElementById("hamburger-menu");
+    var dropdownContent = document.getElementById("dropdown-content");
+  
+    // Ajoutez une condition pour les petits écrans
+    if (window.innerWidth <= 600) {
+      hamburgerMenu.addEventListener("click", function () {
+        dropdownContent.classList.toggle("show");
+      });
+    }
   
     checkboxes.forEach(function (checkbox) {
       checkbox.addEventListener("change", function () {
