@@ -222,3 +222,10 @@ label {
 #back-to-top:hover {
   background-color: #555;
 }
+
+/* Styles spécifiques pour les petits écrans */
+@media only screen and (max-width: 600px) {
+  #back-to-top {
+    right: 10px; /* Ajustez la valeur en fonction de la position souhaitée */
+  }
+}
