@@ -1,93 +1,61 @@
-document.addEventListener("DOMContentLoaded", function () {
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    var hamburgerMenu = document.getElementById("hamburger-menu");
-    var dropdownContent = document.getElementById("dropdown-content");
-  
-    // Ajoutez une condition pour les petits écrans
-    if (window.innerWidth <= 600) {
-      hamburgerMenu.addEventListener("click", function () {
-        dropdownContent.classList.toggle("show");
-      });
-    }
-  
-    checkboxes.forEach(function (checkbox) {
-      checkbox.addEventListener("change", function () {
-        updateCheckboxState();
-      });
-    });
-  
-    function updateCheckboxState() {
-      var checkboxState = [];
-  
+document.addEventListener('DOMContentLoaded', function () {
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+  // Fonction pour sauvegarder l'état des cases à cocher dans le stockage local
+  function saveCheckboxState() {
       checkboxes.forEach(function (checkbox) {
-        checkboxState.push({
-          id: checkbox.id,
-          checked: checkbox.checked,
-        });
+          localStorage.setItem(checkbox.id, checkbox.checked);
       });
-  
-      localStorage.setItem("checkboxState", JSON.stringify(checkboxState));
-    }
-  
-    function loadCheckboxState() {
-      var storedCheckboxState = localStorage.getItem("checkboxState");
-  
-      if (storedCheckboxState) {
-        var parsedCheckboxState = JSON.parse(storedCheckboxState);
-  
-        parsedCheckboxState.forEach(function (item) {
-          var checkbox = document.getElementById(item.id);
-  
-          if (checkbox) {
-            checkbox.checked = item.checked;
+  }
+
+  // Fonction pour charger l'état des cases à cocher depuis le stockage local
+  function loadCheckboxState() {
+      checkboxes.forEach(function (checkbox) {
+          const checked = JSON.parse(localStorage.getItem(checkbox.id));
+          if (checked !== null) {
+              checkbox.checked = checked;
           }
-        });
-      }
-    }
-  
-    loadCheckboxState();
-  });
-  
-  document.addEventListener("DOMContentLoaded", function () {
-    var backToTopButton = document.getElementById("back-to-top");
-  
-    window.addEventListener("scroll", function () {
-      if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
-      ) {
-        backToTopButton.style.display = "block";
-      } else {
-        backToTopButton.style.display = "none";
-      }
-    });
-  
-    backToTopButton.addEventListener("click", function () {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    });
-  });
-  
-  document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll('.dropdown-content a');
-  
-    links.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-  
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-  
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop,
-            behavior: 'smooth'
-          });
-        }
-  
-        document.getElementById('hamburger-menu').classList.remove('open');
-        document.getElementById('dropdown-content').classList.remove('show');
       });
-    });
+  }
+
+  // Charger l'état des cases à cocher lors du chargement de la page
+  loadCheckboxState();
+
+  // Ajouter un écouteur d'événement à chaque case à cocher pour sauvegarder son état lorsqu'il est modifié
+  checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', saveCheckboxState);
   });
-  
+
+  // Fonction pour afficher la fenêtre modale de félicitations si tous les défis sont terminés
+  function checkCompletion() {
+      let allChecked = true;
+      checkboxes.forEach(function (checkbox) {
+          if (!checkbox.checked) {
+              allChecked = false;
+          }
+      });
+      if (allChecked) {
+          document.getElementById('congrats-modal').style.display = 'block';
+      }
+  }
+
+  // Vérifier l'état de complétion lors du chargement de la page
+  checkCompletion();
+
+  // Ajouter un écouteur d'événement à chaque case à cocher pour vérifier l'état de complétion lorsqu'il est modifié
+  checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', checkCompletion);
+  });
+
+  // Fermer la fenêtre modale de félicitations en cliquant sur le bouton de fermeture
+  const closeModalButton = document.querySelector('.close');
+  closeModalButton.addEventListener('click', function () {
+      document.getElementById('congrats-modal').style.display = 'none';
+  });
+
+  // Ajouter un événement pour revenir en haut de la page
+  const backToTopButton = document.getElementById('back-to-top');
+  backToTopButton.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});

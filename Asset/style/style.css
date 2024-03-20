@@ -41,7 +41,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f2f2f2;
@@ -125,4 +125,40 @@ label {
   #back-to-top {
     right: 10px; /* Ajustez la valeur en fonction de la position souhaitée */
   }
+}
+/* Styles spécifiques pour les moyen écrans */
+@media only screen and (max-width: 900px) {
+  #back-to-top {
+    right: 10px; /* Ajustez la valeur en fonction de la position souhaitée */
+  }
+}
+
+
+/* Style de base pour la fenêtre */
+.modal {
+  width: 80%; /* Largeur de la fenêtre */
+  max-width: 800px; /* Largeur maximale de la fenêtre */
+  margin: 50px auto; /* Centrer la fenêtre horizontalement avec un espace de 50px en haut et en bas */
+  padding: 20px; /* Marge intérieure de la fenêtre */
+  background-color: #fff; /* Couleur de fond de la fenêtre */
+  border: 1px solid #ccc; /* Bordure de la fenêtre */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre de la fenêtre */
+  border-radius: 10px; /* Bordure arrondie de la fenêtre */
+}
+
+.modal-content{
+  color: goldenrod;
+}
+
+/* Style pour les titres de la fenêtre */
+.modal h2 {
+  font-size: 24px; /* Taille de police du titre */
+  margin-bottom: 20px; /* Espace en bas du titre */
+}
+
+/* Style pour les messages d'erreur de la fenêtre */
+.window .error-message {
+  color: #ff0000; /* Couleur du texte du message d'erreur */
+  font-size: 14px; /* Taille de police du message d'erreur */
+  margin-top: 5px; /* Espace en haut du message d'erreur */
 }
