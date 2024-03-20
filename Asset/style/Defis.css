@@ -1,32 +1,48 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
+    background-color: black;
   }
   
   .navbar {
     background-color: #333;
-    padding: 15px;
-    text-align: center;
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
   }
   
-  .hamburger-menu {
-    display: inline-block;
-    cursor: pointer;
-  }
+ .navbar a{
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+ .navbar a:hover{
+  color: #f2f2f2;
+  background-color: #ffffff4f;
+}
+
+.hamburger-menu {
+  color: black;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
   
   .bar {
-    width: 30px;
+    width: 25px;
     height: 3px;
     background-color: #fff;
-    margin: 6px 0;
-    transition: 0.4s;
+    margin: 3px 0;
   }
   
-  .menu {
+  .menu-list {
     display: none;
   }
   
-  .menu a {
+  .menu-list a {
     display: block;
     padding: 10px;
     text-decoration: none;
@@ -34,21 +50,93 @@ body {
     transition: background-color 0.3s;
   }
   
-  .menu a:hover {
+  .menu-list a:hover {
     background-color: #555;
   }
-  
-  .content {
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
+    background-color: #f2f2f2;
   }
-  
-  .weapon-content {
-    display: none;
+
+/* Fixer la taille des images */
+.image-table img {
+  width: 300px; /* Ajuste la largeur selon tes préférences */
+  height: 100px; /* Ajuste la hauteur selon tes préférences */
+  object-fit: cover; /* Pour maintenir les proportions de l'image tout en remplissant la boîte */
+}
+
+
+.image-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.image-table caption {
+  font-size: 1.5em; /* Taille du texte du caption */
+  font-weight: bold; /* Gras pour le texte du caption (optionnel) */
+  margin-bottom: 10px; /* Marge en bas du caption (optionnel) */
+  text-transform: uppercase;
+}
+
+.image-table td {
+  border: 1px solid #dddddd;
+  padding: 10px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+ul {
+list-style: none;
+text-align: left;
+font-size: 0.8rem;
+}
+
+input[type="checkbox"] {
+  margin-top: 10px;
+  cursor: pointer;
+  transform: scale(1.8);
+  z-index: 1;
+}
+
+label {
+  display: block;
+  margin-top: 3px;
+  font-size: 1.2rem;
+}
+
+/* Styles pour le bouton de retour vers le haut */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#back-to-top:hover {
+  background-color: #555;
+}
+
+/* Styles spécifiques pour les petits écrans */
+@media only screen and (max-width: 600px) {
+  #back-to-top {
+    right: 10px; /* Ajustez la valeur en fonction de la position souhaitée */
   }
-  
-  .weapon-content h2 {
-    color: #333;
-  }
-  
-  /* Styles spécifiques pour chaque classe d'arme peuvent être ajoutés ici */
-  
+}

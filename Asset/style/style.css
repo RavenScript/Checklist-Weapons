@@ -1,7 +1,6 @@
-
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  background-color: black;
   margin: 0;
   padding: 0;
 }
@@ -18,13 +17,6 @@ body {
 .navbar h1 {
   color: white;
   margin: 0;
-}
-
-.bar {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 5px 0;
 }
 
 .defi {
@@ -48,50 +40,12 @@ body {
   color: white;
 }
 
-/* Media query pour afficher le menu hamburger sur les petits écrans */
-@media only screen and (max-width: 768px) {
-  .hamburger-menu {
-      display: flex;
-      z-index: 9999;
-  }
-
-  .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background-color: #333;
-  }
-
-  .dropdown-content.show {
-      display: flex;
-  }
-
-  .dropdown-content a {
-      border-bottom: 1px solid #555;
-  }
-}
-
 .container {
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #f2f2f2;
 }
-
-/* Ajoute cette règle pour positionner la checkbox à côté du nom du tableau */
-.image-table caption.coche-all {
-  position: relative;
-}
-
-/* Ajoute cette règle pour styliser la checkbox "coche-all" */
-.image-table caption.coche-all input[type="checkbox"] {
-  position: absolute;
-  right: 50px; /* Ajuste la valeur selon tes préférences */
-  left: auto;
-  cursor: pointer;
-}
-
 
 /* Fixer la taille des images */
 .image-table img {
@@ -116,7 +70,7 @@ body {
 
 .image-table td {
   border: 1px solid #dddddd;
-  padding: 8px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -125,6 +79,12 @@ img {
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+ul {
+list-style: none;
+text-align: left;
+font-size: 0.8rem;
 }
 
 input[type="checkbox"] {
@@ -136,67 +96,8 @@ input[type="checkbox"] {
 
 label {
   display: block;
-  margin-top: 5px;
-  font-size: 1.4rem;
-}
- 
-/* Media queries pour les écrans de taille moyenne (tablettes) */
-@media only screen and (max-width: 768px) {
-  .container {
-      padding: 10px;
-  }
-}
-
-/* Media query pour afficher le menu hamburger sur les petits écrans */
-@media only screen and (max-width: 768px) {
-  .hamburger-menu {
-      display: flex;
-      z-index: 9999;
-  }
-
-  .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background-color: #333;
-      z-index: 9998;
-  }
-
-  .dropdown-content.show {
-      display: flex;
-  }
-
-  .dropdown-content a {
-      border-bottom: 1px solid #555;
-  }
-
-    /* Désactive les interactions avec les cases à cocher lorsque le menu est ouvert */
-    .dropdown-content.show .image-table input[type="checkbox"] {
-      pointer-events: none;
-    }
-}
-
-/* Media query pour afficher le menu hamburger également sur les écrans plus larges */
-@media only screen and (min-width: 769px) {
-  .hamburger-menu {
-      display: none;
-      z-index: 9999;
-  }
-
-  .dropdown-content {
-      display: flex;
-      flex-direction: row; /* Ajoute cette ligne pour aligner les liens horizontalement */
-      position: static;
-      width: auto;
-      background-color: transparent;
-  }
-
-  .dropdown-content a {
-      border-bottom: none;
-      padding: 0 15px; /* Espacement entre les liens */
-  }
+  margin-top: 3px;
+  font-size: 1.2rem;
 }
 
 /* Styles pour le bouton de retour vers le haut */
